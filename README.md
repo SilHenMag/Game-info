@@ -18,4 +18,4 @@ Hvad er prisen?
 
 Hvilke platforme kan man spille på?
 
-Hvordan ville vi kunne bruge apien til indsamlingen af data?
+Hvordan ville vi kunne bruge en api til indsamlingen af data?
