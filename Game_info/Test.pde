@@ -6,7 +6,10 @@ public void button1_click1(GButton source, GEvent event) {
   background(100);
 }
 
-public void createGUI1(){
+public void textfield1_change1(GTextField source, GEvent event) {
+}
+
+public void createGUI1() {
   G4P.messagesEnabled(false);
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
   G4P.setMouseOverEnabled(false);
@@ -14,7 +17,7 @@ public void createGUI1(){
   G4P.setInputFont("Arial", G4P.PLAIN, 30);
   G4P.setSliderFont("Arial", G4P.PLAIN, 30);
   surface.setTitle("Sketch Window");
-  textfield1 = new GTextField(this, 0, 150, 600, 100, G4P.SCROLLBARS_NONE);
+  textfield1 = new GTextField(this, 5, 150, 600, 100, G4P.SCROLLBARS_NONE);
   textfield1.setPromptText("Insert game name here");
   textfield1.setLocalColorScheme(GCScheme.BLUE_SCHEME);
   textfield1.setOpaque(true);
@@ -27,8 +30,11 @@ public void createGUI1(){
   button2.setText("Dark");
   button2.setLocalColorScheme(GCScheme.GOLD_SCHEME);
   button2.addEventHandler(this, "button2_click2");
+  G4P.setDisplayFont("Arial", G4P.PLAIN, 20);
+  G4P.setInputFont("Arial", G4P.PLAIN, 20);
+  G4P.setSliderFont("Arial", G4P.PLAIN, 20);
 }
 
-GTextField textfield1; 
-GButton button1; 
-GButton button2; 
+GTextField textfield1;
+GButton button1;
+GButton button2;
