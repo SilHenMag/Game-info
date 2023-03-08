@@ -10,8 +10,7 @@
 10;Just Dance 2021;299;Music;Xbox series x, Xbox One;12/11/20;Ubisoft;Full Release
 11;Hogwarts Legacy;446,59;Magic, Story Rich, Action;PlayStation, Xbox, Switch, Steam, Epic Games;10/02/2022;Warner Bros;Full Release
 12;Counter-Strike: Global Offensive;0;FPS, Shooter, Action;Steam, Xbox, PlayStation;21/08/2012;Valve;Full Release
-13;Sons Of The Forest;215,81;Survival, Crafting, Adventure;Steam;23/02/2023;
-Endnight Games Ltd;Early Access
+13;Sons Of The Forest;215,81;Survival, Crafting, Adventure;Steam;23/02/2023;Endnight Games Ltd;Early Access
 14;PAYDAY 2;74,37;FPS, Heist, Co-op;Steam, PlayStation;13/08/2013;Starbreeze Publishing AB;Full Release
 15;ELDEN RING;446,47;Soul-like, Difficult, Third person;PlayStation, Xbox, Steam, Epic games;25/02/2022;Bandai Namco Entertainment;Full Release
 16;LEGO® Star Wars™: The Skywalker Saga;372,05;Open World, Sci-fi, Space;Steam, Epic Games, PlayStation, Xbox, Switch;05/05/2022;Warner Bros;Full Release
