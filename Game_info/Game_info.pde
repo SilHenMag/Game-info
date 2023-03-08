@@ -6,7 +6,7 @@ String[] temp;
 
 void setup() { //<>//
   background(100); //<>//
-  //size(1800, 900);
+  size(1800, 900);
   data = loadStrings("Games.txt");
   gameInfo = new String[data.length][7];
 
@@ -22,9 +22,11 @@ void setup() { //<>//
 void draw() {
   fill(75);
   rect(-1, -1, 610, height);
+  textSize(50);
+  fill(0);
   for (int i = 0; i < data.length; i++) {
-    //for (int j = 1; j < 7; j++) {
-      //println(gameInfo[i][1]);
-    //}
+    for (int m = 0; m < 99; m = m + 30) {
+      text(gameInfo[i][1], 50, 300 + m);
+    }
   }
 }
