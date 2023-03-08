@@ -1,32 +1,16 @@
-import g4p_controls.*; //<>//
+import g4p_controls.*; //<>// //<>// //<>//
 
 String[][] gameInfo;
 String[] data;
 String[] temp;
 
-void setup() { //<>//
-  background(100); //<>//
+void setup() {
+  background(100);
   size(1800, 900);
-  data = loadStrings("Games.txt");
-  gameInfo = new String[data.length][7];
-
-  for (int i = 0; i < data.length; i++) {
-    temp = split(data[i], ";");
-    for (int j = 1; j < 7; j++) {
-      gameInfo[i][j] = temp[j];
-    }
-  }
+  data_splitter();
   createGUI1();
 }
 
 void draw() {
-  fill(75);
-  rect(-1, -1, 610, height);
-  textSize(50);
-  fill(0);
-  for (int i = 0; i < data.length; i++) {
-    for (int m = 0; m < 99; m = m + 30) {
-      text(gameInfo[i][1], 50, 300 + m);
-    }
-  }
+  search_area();
 }
