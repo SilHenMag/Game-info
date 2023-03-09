@@ -1,16 +1,19 @@
-import g4p_controls.*; //<>// //<>// //<>//
-
-String[][] gameInfo;
-String[] data;
-String[] temp;
+import g4p_controls.*; //<>//
 
 void setup() {
-  background(100);
   size(1800, 900);
   data_splitter();
   createGUI1();
 }
 
 void draw() {
+  background(backgound);
   search_area();
+  ScrollFix();
+}
+
+void mouseWheel(MouseEvent event) {
+  if ((mouseX >= 35 && mouseX <= 570) && (mouseY >= 270)) {
+    move = move - event.getCount();
+  }
 }

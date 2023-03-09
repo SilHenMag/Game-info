@@ -1,9 +1,12 @@
+int move;
+int backgound = 100;
+
 public void button2_click2(GButton source, GEvent event) {
-  background(0);
+  backgound = 0;
 }
 
 public void button1_click1(GButton source, GEvent event) {
-  background(100);
+  backgound = 100;
 }
 
 public void textfield1_change1(GTextField source, GEvent event) {
@@ -48,6 +51,18 @@ void search_area() {
   rect(25, 270, 560, height);
   fill(0);
   for (int i = 0; i < data.length; i++) {
-    text(gameInfo[i][1], 35, 300 + i * 45);
+    text(gameInfo[i][1], 35, 300 + move * 6 + i * 45);
+  }
+  fill(75);
+  strokeWeight(0);
+  rect(0, 0, 600, 269);
+}
+
+void ScrollFix() {
+  if (move <= -308) {
+    move = -307;
+  }
+  if (move > -1) {
+    move = 0;
   }
 }

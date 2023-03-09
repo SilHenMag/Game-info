@@ -1,3 +1,7 @@
+String[][] gameInfo;
+String[] data;
+String[] temp;
+
 void data_splitter() {
   data = loadStrings("Games.txt");
   gameInfo = new String[data.length][7];
