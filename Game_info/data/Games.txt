@@ -21,7 +21,7 @@
 21;Five Nights at Freddy's: Security Breach;252,98;Survival Horror, Robots, First-Person;PlayStation, Steam, Xbox, Epic games;ScottGames;17/12/2021;Full Release
 22;Fifa 23;639 dkk;Sport;PS5;30/09/2022;EA SWiss Sarl;fully released
 23;Hogwarts Legacy;559 dkk;Unique;PS5;10/2/2023;WARNER BROS. INTERACTIVE;fully released
-24;Fornite;0 dkk;Action, Action, Experience, Unique;PS5;12/11/2020;EPIC GAMES;fully released
+24;Fortnite;0 dkk;Action, Action, Experience, Unique;PS5;12/11/2020;EPIC GAMES;fully released
 25;Call of Duty: Modern Warfare 2;629 dkk;Action;PS4, PS5;28/20/2022;Activision Blizzerd;fully released
 26;Grand Theft Auto Online;149 dkk;Action, Experience;PS5;15/03/2022;Rockstar Games;fully released
 27;Destiny 2;0 dkk;Experience, Shooter, Action;PS4, PS5;08/12/2020;Bungie;fully released
@@ -46,7 +46,7 @@
 46;Super Mario Odyssey;418 dkk;Platformer, Action;Nintendo Switch;27/10/2017;Nintendo;fully released
 47;The ledgend of Zelda: Breath of the Wild;418 dkk;Adventure, Action, Role-Playing;Nintendo Switch;03/03/2017;Nintendo;fully released
 48;Minecraft;209 dkk;Action, Adventure, Simulation;Nintendo Switch;20/06/2018;Mojang;fully released
-49;fall Guys;0 dkk;Multiplayer, Party;Nintendo Switch;21/06/2022;Epic Games;fully released
+49;Fall Guys;0 dkk;Multiplayer, Party;Nintendo Switch;21/06/2022;Epic Games;fully released
 50;Metroid Dread;418 dkk;Action, Adventure;Nintendo Switch;8/10/2021;Nintendo;fully released
 51;Super Mario Maker 2;418 dkk;Action, Platformer;Nintendo Switch;28/06/2019;Nintendo;fully released
 52;Cuphead;70 dkk;Action, Arcade, Platformer;Nintendo Switch;18/04/2019;StudioMDHR;fully released
