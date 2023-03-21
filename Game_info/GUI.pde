@@ -1,13 +1,10 @@
 int move;
 int backgound = 100;
 float resultY;
-int resultX = 35;
+int resultX = 30;
 int searchResults;
 float[][] searchButtons;
-int[] searchResultsY;
-int[][] searchButtonsPressed;
-int[] searchResultsID;
-int tempSearchID = 0;
+int tempID = 0;
 boolean searchButtonsCheck = false;
 
 public void button2_click2(GButton source, GEvent event) {
@@ -16,9 +13,6 @@ public void button2_click2(GButton source, GEvent event) {
 
 public void button1_click1(GButton source, GEvent event) {
   backgound = 100;
-}
-
-public void textfield1_change1(GTextField source, GEvent event) {
 }
 
 public void createGUI1() {
@@ -54,7 +48,7 @@ GButton button2;
 void search_area() {
   resultY = 0;
   searchResults = 0;
-  tempSearchID = 0;
+  tempID = 0;
 
   fill(75);
   rect(-1, -1, 610, height + 50);
@@ -63,53 +57,65 @@ void search_area() {
   rect(25, 270, 560, height);
   fill(0);
 
+  for (int i = 0; i < data.length; i++) { //goes through whole database
+    if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) { //does a game in database, match search?
+      if (mouseX >= resultX && mouseX <= resultX + width*0.3 && mouseY >= (300 + move * 6 + resultY * 45) - 20 && mouseY <= (300 + move * 6 + resultY * 45) + 10) { //is mouse within a game's button area?
+        fill(200); //set button color
+        rect(resultX, (300 + move * 6 + resultY * 45) - 30, resultX + width*0.285, 45); //the button
+        fill(0); //set text color
+      }
+      text(gameInfo[i][1], resultX, 300 + move * 6 + resultY * 45); //search results
+      resultY++; //makes sure the search results have correct y position
+      searchResults++; //counts the number of search results
+    }
+  }
+
+  searchButtons = new float[searchResults][4]; //ID, y start, y end, activity
+  tempID = 0;
+  resultY = 0;
+  for (int i = 0; i < data.length; i++) {
+    if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) { //does a game in database, match search?
+      searchButtons[tempID][0] = int(gameInfo[i][0]);
+      searchButtons[tempID][1] = (300 + move * 6 + resultY * 45) - 20;
+      searchButtons[tempID][2] = (300 + move * 6 + resultY * 45) + 10;
+      if (frameCount == 0) searchButtons[tempID][3] = 0;
+
+
+      tempID++;
+      resultY++;
+    }
+  }
+
   for (int i = 0; i < data.length; i++) {
     if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) {
-      if (mouseX >= resultX-5 && mouseX <= resultX + width*0.3 && mouseY >= (300 + move * 6 + resultY * 45) - 25 && mouseY <= (300 + move * 6 + resultY * 45) + 10) {
-        fill(200);
-        rect(resultX - 5, (300 + move * 6 + resultY * 45) - 30, resultX + width*0.285, 45);
-        fill(0);
-        if (mousePressed && frameCount >= 1) {
-          for (int j = 0; j < searchButtons.length; j++) {
-            if (searchButtons[j][0] == int(gameInfo[i][0])) searchButtonsPressed[j][1] = 1;
-            println(gameInfo[i][1] + " " + searchButtonsPressed[j][1]);
+      if (frameCount >= 1 && mousePressed) {
+        for (int j = 0; j < searchButtons.length; j++) {
+          if (float(mouseY) >= searchButtons[j][1] && float(mouseY) <= searchButtons[j][2]) {
+            searchButtons[j][3] = 1.0;
+            printArray(searchButtons[j]);
           }
         }
       }
-      text(gameInfo[i][1], resultX, 300 + move * 6 + resultY * 45);
-      resultY++;
-      searchResults++;
-    }
-  }
-
-  searchButtonsPressed = new int[searchResults][2];
-  for (int i = 0; i < searchButtonsPressed.length; i++) {
-    if (frameCount >= 1 && searchButtonsPressed[i][1] == 1) {
-      fill(200);
-      rect(width*0.5, height*0.2, width*0.3, height*0.6);
-
-      noFill();
-    }
-  }
-
-  //does pseudus shitus
-  searchButtons = new float[searchResults][3]; //[gameid][xpos][ypos]
-  for (int i = 0; i < data.length; i++) {
-    if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) {
-      searchButtons[tempSearchID][0] = int(gameInfo[i][0]);
-      searchButtons[tempSearchID][1] = resultX;
-      searchButtons[tempSearchID][2] = (300 + move * 6 + resultY * 45);
-
-      tempSearchID++;
     }
   }
   
-  for (int i = 0; i < searchResults; i++) {
-    searchButtonsPressed[i][0] = int(searchButtons[i][0]);
-    if (!searchButtonsCheck) searchButtonsPressed[i][1] = 0;
+  for (int i = 0; i < searchButtons.length; i++) {
+    if (searchButtons[i][3] == 1.0) {
+      fill(200);
+      rect(width*0.35, height*0.025, width*0.64, height*0.95);
+      
+      fill(0);
+      for (int j = 0; j < data.length; j++) {
+        if (searchButtons[i][0] == float(gameInfo[j][0])) {
+          //newPanel - the actual panel. ends when the if statement above is over
+          
+          text(gameInfo[j][0] + " " + gameInfo[j][1] + " " + gameInfo[j][2] + " " , width*0.4, height*0.5); //newPanel - location for actual panel
+        }  
+    }
+      
+      noFill();
+    }
   }
-  searchButtonsCheck = true;
-  //readus abovus u idiotus
 
   fill(75);
   strokeWeight(0);
