@@ -9,10 +9,6 @@ public void button1_click1(GButton source, GEvent event) {
   backgound = 100;
 }
 
-public void textfield1_change1(GTextField source, GEvent event) {
-  
-}
-
 public void createGUI1() {
   G4P.messagesEnabled(false);
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
