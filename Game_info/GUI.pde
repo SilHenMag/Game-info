@@ -106,14 +106,13 @@ void search_area() {
   }
 
   if (activity != -1 && frameCount >= 1) {
-    fill(200);
-    rect(width*0.35, height*0.025, width*0.64, height*0.95);
-
-    fill(0);
     for (int j = 0; j < data.length; j++) {
       if (searchButtons[activity][0] == float(gameInfo[j][0])) {
-        //newPanel - the actual panel. ends when the if statement above is over
+        //info panel start. the panel that holds information about a game
+        fill(200);
+        rect(width*0.35, height*0.025, width*0.64, height*0.95);
 
+        fill(0);
         text(gameInfo[j][0] + " " +
           gameInfo[j][1] + " " +
           gameInfo[j][2] + " " +
@@ -121,6 +120,7 @@ void search_area() {
           gameInfo[j][4] + " " +
           gameInfo[j][5] + " " +
           gameInfo[j][6], width*0.4, height*0.5); //newPanel - location for actual panel
+        //info panel end
       }
 
       noFill();
