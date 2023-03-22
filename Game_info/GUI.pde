@@ -1,11 +1,11 @@
-int move;
+int move; //<>//
 int backgound = 100;
 float resultY;
 int resultX = 30;
 int searchResults;
 float[][] searchButtons;
 int tempID = 0;
-boolean searchButtonsCheck = false;
+int activity = -1;
 
 public void button2_click2(GButton source, GEvent event) {
   backgound = 0;
@@ -78,7 +78,6 @@ void search_area() {
       searchButtons[tempID][0] = int(gameInfo[i][0]);
       searchButtons[tempID][1] = (300 + move * 6 + resultY * 45) - 20;
       searchButtons[tempID][2] = (300 + move * 6 + resultY * 45) + 10;
-      if (frameCount == 0) searchButtons[tempID][3] = 0;
 
 
       tempID++;
@@ -86,33 +85,44 @@ void search_area() {
     }
   }
 
-  for (int i = 0; i < data.length; i++) {
-    if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) {
-      if (frameCount >= 1 && mousePressed) {
-        for (int j = 0; j < searchButtons.length; j++) {
-          if (float(mouseY) >= searchButtons[j][1] && float(mouseY) <= searchButtons[j][2]) {
-            searchButtons[j][3] = 1.0;
-            printArray(searchButtons[j]);
-          }
-        }
+
+  //deactivates buttons
+  if (frameCount >= 1 && mousePressed && activity != -1) {
+    for (int i = 0; i < searchButtons.length; i++) {
+      if (mouseX < resultX || mouseX > resultX + width*0.3 || mouseY < searchButtons[i][1] || mouseY > searchButtons[i][2]) activity = -1;
+    }
+  }
+
+  //activates buttons
+  if (frameCount >= 1 && mousePressed) {
+    for (int i = 0; i < searchButtons.length; i++) {
+      if (mouseX >= resultX && mouseX <= resultX + width*0.3 && mouseY >= searchButtons[i][1] && mouseY <= searchButtons[i][2]) {
+        searchButtons[i][3] = 1.0;
+        activity = i;
+        println("");
+        printArray(searchButtons[i]);
       }
     }
   }
-  
-  for (int i = 0; i < searchButtons.length; i++) {
-    if (searchButtons[i][3] == 1.0) {
-      fill(200);
-      rect(width*0.35, height*0.025, width*0.64, height*0.95);
-      
-      fill(0);
-      for (int j = 0; j < data.length; j++) {
-        if (searchButtons[i][0] == float(gameInfo[j][0])) {
-          //newPanel - the actual panel. ends when the if statement above is over
-          
-          text(gameInfo[j][0] + " " + gameInfo[j][1] + " " + gameInfo[j][2] + " " , width*0.4, height*0.5); //newPanel - location for actual panel
-        }  
-    }
-      
+
+  if (activity != -1 && frameCount >= 1) {
+    fill(200);
+    rect(width*0.35, height*0.025, width*0.64, height*0.95);
+
+    fill(0);
+    for (int j = 0; j < data.length; j++) {
+      if (searchButtons[activity][0] == float(gameInfo[j][0])) {
+        //newPanel - the actual panel. ends when the if statement above is over
+
+        text(gameInfo[j][0] + " " +
+          gameInfo[j][1] + " " +
+          gameInfo[j][2] + " " +
+          gameInfo[j][3] + " " +
+          gameInfo[j][4] + " " +
+          gameInfo[j][5] + " " +
+          gameInfo[j][6], width*0.4, height*0.5); //newPanel - location for actual panel
+      }
+
       noFill();
     }
   }
