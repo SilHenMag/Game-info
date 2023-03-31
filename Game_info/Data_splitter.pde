@@ -8,7 +8,7 @@ void data_splitter() {
 
   for (int i = 0; i < data.length; i++) {
     temp = split(data[i], ";");
-    for (int j = 1; j < 7; j++) {
+    for (int j = 0; j < 7; j++) {
       gameInfo[i][j] = temp[j];
     }
   }
