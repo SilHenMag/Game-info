@@ -1,3 +1,4 @@
+//declare variables
 int move; //<>//
 int backgound = 100;
 float resultY;
@@ -7,14 +8,17 @@ float[][] searchButtons;
 int tempID = 0;
 int activity = -1;
 
+//backgroundbutton 2
 public void button2_click2(GButton source, GEvent event) {
   backgound = 0;
 }
 
+//backgroundbutton1
 public void button1_click1(GButton source, GEvent event) {
   backgound = 100;
 }
 
+//the GUI
 public void createGUI1() {
   G4P.messagesEnabled(false);
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
@@ -41,10 +45,12 @@ public void createGUI1() {
   G4P.setSliderFont("Arial", G4P.PLAIN, 20);
 }
 
+
 GTextField textfield1;
 GButton button1;
 GButton button2;
 
+//search result panel
 void search_area() {
   resultY = 0;
   searchResults = 0;
@@ -57,6 +63,7 @@ void search_area() {
   rect(25, 270, 560, height);
   fill(0);
 
+//places the search results
   for (int i = 0; i < data.length; i++) { //goes through whole database
     if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) { //does a game in database, match search?
       if (mouseX >= resultX && mouseX <= resultX + width*0.3 && mouseY >= (300 + move * 6 + resultY * 45) - 20 && mouseY <= (300 + move * 6 + resultY * 45) + 10) { //is mouse within a game's button area?
@@ -70,14 +77,15 @@ void search_area() {
     }
   }
 
+//makes the array that holds the buttons
   searchButtons = new float[searchResults][4]; //ID, y start, y end, activity
   tempID = 0;
   resultY = 0;
   for (int i = 0; i < data.length; i++) {
     if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) { //does a game in database, match search?
-      searchButtons[tempID][0] = int(gameInfo[i][0]);
-      searchButtons[tempID][1] = (300 + move * 6 + resultY * 45) - 20;
-      searchButtons[tempID][2] = (300 + move * 6 + resultY * 45) + 10;
+      searchButtons[tempID][0] = int(gameInfo[i][0]); //include game ID
+      searchButtons[tempID][1] = (300 + move * 6 + resultY * 45) - 20; //give y start coordinate
+      searchButtons[tempID][2] = (300 + move * 6 + resultY * 45) + 10; //give y end coordinate
 
 
       tempID++;
@@ -86,29 +94,31 @@ void search_area() {
   }
 
 
-  //deactivates buttons
-  if (frameCount >= 1 && mousePressed && activity != -1) {
-    for (int i = 0; i < searchButtons.length; i++) {
-      if (mouseX < resultX || mouseX > resultX + width*0.3 || mouseY < searchButtons[i][1] || mouseY > searchButtons[i][2]) activity = -1;
+//deactivates buttons
+  if (frameCount >= 1 && mousePressed && activity != -1) { //run if a button is active (known through activity ID), mouse is down, and the whole script has been run least once already
+    for (int i = 0; i < searchButtons.length; i++) { //looks through all buttons in search result panel
+      if (mouseX < resultX || mouseX > resultX + width*0.3 || mouseY < searchButtons[i][1] || mouseY > searchButtons[i][2]) activity = -1; //set all buttons to inactive if mouse is outside just 1 of them
     }
   }
 
-  //activates buttons
-  if (frameCount >= 1 && mousePressed) {
-    for (int i = 0; i < searchButtons.length; i++) {
-      if (mouseX >= resultX && mouseX <= resultX + width*0.3 && mouseY >= searchButtons[i][1] && mouseY <= searchButtons[i][2]) {
-        searchButtons[i][3] = 1.0;
-        activity = i;
+//activates buttons
+  if (frameCount >= 1 && mousePressed) { //run if mouse is down and the whole script has been run least once already
+    for (int i = 0; i < searchButtons.length; i++) { //looks through all buttons in search result panel
+      if (mouseX >= resultX && mouseX <= resultX + width*0.3 && mouseY >= searchButtons[i][1] && mouseY <= searchButtons[i][2]) { //is mouse inside just one of the buttons?
+        searchButtons[i][3] = 1.0; //set the button in list of buttons, to active
+        activity = i; //set activity ID to the button that's active
+        
+        //not needed. is just to show the game's button info in console
         println("");
         printArray(searchButtons[i]);
       }
     }
   }
 
-  if (activity != -1 && frameCount >= 1) {
-    for (int j = 0; j < data.length; j++) {
-      if (searchButtons[activity][0] == float(gameInfo[j][0])) {
-        //info panel start. the panel that holds information about a game
+  if (activity != -1 && frameCount >= 1) { //run if a button is active (known through button ID) and if the whole script has run least once already
+    for (int j = 0; j < data.length; j++) { //looks through the whole list of data, since that's where all the games' information is
+      if (searchButtons[activity][0] == float(gameInfo[j][0])) { //does the game looked at, have the right ID?
+        //infomation panel. Placeholder until the real pages are finished
         fill(200);
         rect(width*0.35, height*0.025, width*0.64, height*0.95);
 
@@ -119,8 +129,7 @@ void search_area() {
           gameInfo[j][3] + " " +
           gameInfo[j][4] + " " +
           gameInfo[j][5] + " " +
-          gameInfo[j][6], width*0.4, height*0.5); //newPanel - location for actual panel
-        //info panel end
+          gameInfo[j][6], width*0.4, height*0.5);
       }
 
       noFill();
@@ -132,11 +141,12 @@ void search_area() {
   rect(0, 0, 600, 269);
 }
 
+//function that ensures you don't scroll out of the search results panel
 void ScrollFix() {
-  if (move <= -308) {
-    move = -307;
+  if (move <= -308) { //has there been scrolled further than the bottom?
+    move = -307; //set scroll to bottom
   }
-  if (move > -1) {
-    move = 0;
+  if (move > -1) { //has there been scrolled further than the top?
+    move = 0; //set scroll to top
   }
 }
