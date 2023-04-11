@@ -115,6 +115,7 @@ void search_area() {
     }
   }
 
+Activates the information panel
   if (activity != -1 && frameCount >= 1) { //run if a button is active (known through button ID) and if the whole script has run least once already
     for (int j = 0; j < data.length; j++) { //looks through the whole list of data, since that's where all the games' information is
       if (searchButtons[activity][0] == float(gameInfo[j][0])) { //does the game looked at, have the right ID?
@@ -130,6 +131,7 @@ void search_area() {
           gameInfo[j][4] + " " +
           gameInfo[j][5] + " " +
           gameInfo[j][6], width*0.4, height*0.5);
+         //information panel end
       }
 
       noFill();
