@@ -1,55 +1,55 @@
-1;Call of Duty: Modern Warfare II;599;Shooter;Xbox One, Xbox Series X;28/10/22;Activision;Full Release
-2;Hogwarts Legacy;549;Adventure;Xbox One;10/02/23;Avalanche software;Full Release
-3;Diablo IV;649;Action;Xbox Series X, Xbox One;06/06/23;Blizzard entertainment;Full Release
-4;Far Cry New Dawn;199;Shooter;Xbox One;14/02/19;Ubisoft;Full Release
-5;FIFA 21;49;Sport;Xbox One, Xbox Series X;14/08/20;Electronic Arts;Full Release
-6;NHL 21;99;Sport;Xbox series x, Xbox One;16/10/20;Electronic Arts;Full Release
-7;F1 2021;179;Racing;Xbox series x, Xbox One;16/07/21;Electronic Arts;Full Realease
-8;STAR WARS Jedi: Fallen order;199;Action;Xbox series x, Xbox One;11/11/19;Electronic Arts;Full Release
-9;God of Rock - Deluxe edition;199;Music;Xbox series x, Xbox One;21/03/23;Modus Games;Full Release
-10;Just Dance 2021;299;Music;Xbox series x, Xbox One;12/11/20;Ubisoft;Full Release
-11;Hogwarts Legacy;446,59;Magic, Story Rich, Action;PlayStation, Xbox, Switch, Steam, Epic Games;10/02/2022;Warner Bros;Full Release
-12;Counter-Strike: Global Offensive;0;FPS, Shooter, Action;Steam, Xbox, PlayStation;21/08/2012;Valve;Full Release
-13;Sons Of The Forest;215,81;Survival, Crafting, Adventure;Steam;23/02/2023;Endnight Games Ltd;Early Access
-14;PAYDAY 2;74,37;FPS, Heist, Co-op;Steam, PlayStation;13/08/2013;Starbreeze Publishing AB;Full Release
-15;ELDEN RING;446,47;Soul-like, Difficult, Third person;PlayStation, Xbox, Steam, Epic games;25/02/2022;Bandai Namco Entertainment;Full Release
-16;LEGO® Star Wars™: The Skywalker Saga;372,05;Open World, Sci-fi, Space;Steam, Epic Games, PlayStation, Xbox, Switch;05/05/2022;Warner Bros;Full Release
-17;DOOM Eternal;297,70;Demons, Blood, FPS;PlayStation, Xbox, Steam;20/03/2020;Bethesda;Full Release
-18;SUPERHOT;171,15;Action, FPS, SinglePlayer;Xbox, Steam, Switch, PlayStation, Epic games;25/02/2016;SUPERHOT Team;Full Release
-19;Portal;72,58;Puzzle,First-Person, Platformer;Steam, Xbox, PlayStation, Switch;10/10/2007;Valve;Full Release
-20;Leaf Blower Revolution - Idle Game;0;Indie, Relaxing, Free to play;Steam, Google Play;Humble North;04/12/2020;Full Release
-21;Five Nights at Freddy's: Security Breach;252,98;Survival Horror, Robots, First-Person;PlayStation, Steam, Xbox, Epic games;ScottGames;17/12/2021;Full Release
-22;Fifa 23;639 dkk;Sport;PS5;30/09/2022;EA SWiss Sarl;fully released
-23;Hogwarts Legacy;559 dkk;Unique;PS5;10/2/2023;WARNER BROS. INTERACTIVE;fully released
-24;Fortnite;0 dkk;Action, Action, Experience, Unique;PS5;12/11/2020;EPIC GAMES;fully released
-25;Call of Duty: Modern Warfare 2;629 dkk;Action;PS4, PS5;28/20/2022;Activision Blizzerd;fully released
-26;Grand Theft Auto Online;149 dkk;Action, Experience;PS5;15/03/2022;Rockstar Games;fully released
-27;Destiny 2;0 dkk;Experience, Shooter, Action;PS4, PS5;08/12/2020;Bungie;fully released
-28;Genshin Impact-Lantern Rite;0 dkk;Action,Experience, Role Playing;PS4, PS5;28/04/2021;COGNOSPHERE PTE.LTD.;fully released
-29;Minecraft;134,95 dkk;Experience;PS4;10/12/2019;Mojang AB;fully released
-30;Atomic Heart;519 dkk;Action, RPG;PS4, PS5;21/02/2023;Focus Entertainment;fully released
-31;Horizon Call of the Mountain;519 dkk;Action, Experience;PS5 VR2;22/02/2023;Sony Interactive Entertainment Europe;fully released
-32;Gran Turismo 7;694 dkk;Driving, Racing;PS4, PS5;4/3/2022;Polyphony Digital Inc;fully released
-33;The Last of Us Part 1;594 dkk;Action;PS5;2/9/2022;Sony Interactive Entertainment Europe;fully released
-34;Valorant;Free;Action, Shooter;Windows 7, Windows 8, Windoes 10 (64-Bit);02/06/20;Riot Games;Full Release
-35;Naraka: Bladepoint;130;Action;Windows 10 64-bit;11/08/21;24 Entertainment;Full Release
-36;Red Dead Redemption 2;449;Action, Narration, Open World;Windows 10;26/10/18;Rockstar Games;Full Release
-37;Destiny 2;Free;Action, Shooter, Adventure;Windows 10 (64-Bit);28/08/17;Bungie Studios;Full Release
-38;Hogwarts Legacy;449;Action, RPG, Adventure;Windows 10;10/02/23;Avalanche Software;Full Release
-39;Dead by Daylight;96,10;Action, Survival;Windows 10 64-bit;14/06/16;Behaviour Interactive;Full Release
-40;Bloons TD 6;67;Strategy;Windows 10;14/06/18;Ninja Kiwi;Full Release
-41;League of Legends;Free;Action, RPG, Strategy;Windows 7, Windows 8, Windows 10, MacOS 10.12, MacOS 10.16;27/10/09;Riot Games;Full Release
-42;ARK: Survival Evolved;96;RPG, Survival, Adventure;Windows 7 64-bit, Windows 8.1 64-bit, Windows 10 64-bit;02/06/15;Studio Wildcard;Full Release
-43;Cyberpunk 2077;399;Action, RPG, Open World, Windows 10;10/12/20;CD Projekt RED;Full Release
-44;The Legend of Zelda:Tears of the Kingdom;488 dkk;Adventure,Action,Roleplaying;Nintendo Switch;12/05/2023;Nintendo;pre order
-45;Super Smash Bros. Ultimate;418 dkk;Action, Fighting, Multiplayer;Nintendo Switch;07/12/2018;Nintendo;fully released
-46;Super Mario Odyssey;418 dkk;Platformer, Action;Nintendo Switch;27/10/2017;Nintendo;fully released
-47;The Legend of Zelda: Breath of the Wild;418 dkk;Adventure, Action, Role-Playing;Nintendo Switch;03/03/2017;Nintendo;fully released
-48;Minecraft;209 dkk;Action, Adventure, Simulation;Nintendo Switch;20/06/2018;Mojang;fully released
-49;Fall Guys;0 dkk;Multiplayer, Party;Nintendo Switch;21/06/2022;Epic Games;fully released
-50;Metroid Dread;418 dkk;Action, Adventure;Nintendo Switch;8/10/2021;Nintendo;fully released
-51;Super Mario Maker 2;418 dkk;Action, Platformer;Nintendo Switch;28/06/2019;Nintendo;fully released
-52;Cuphead;70 dkk;Action, Arcade, Platformer;Nintendo Switch;18/04/2019;StudioMDHR;fully released
-53;Hollow Knight;104 dkk;Action, Adventure, Platformer;Nintendo Switch;12/06/2018;Team Cherry;fully released
-54;Mario Kart 8 Deluxe;418 dkk;Racing, Mutiplayer;Nintendo Switch;28/04/2017;Nintendo;fully released
-55;Rocket League;0 dkk;Sports, Racing, Action;Nintendo Switch;14/11/2017;Psyonix;fully released
+1;Call of Duty: Modern Warfare II (Xbox);599;Shooter;Xbox One, Xbox Series X;28/10/22;Activision;Full Release
+2;Hogwarts Legacy (Xbox);549;Adventure;Xbox One;10/02/23;Avalanche software;Full Release
+3;Diablo IV (Xbox);649;Action;Xbox Series X, Xbox One;06/06/23;Blizzard entertainment;Full Release
+4;Far Cry New Dawn (Xbox);199;Shooter;Xbox One;14/02/19;Ubisoft;Full Release
+5;Halo: The Master Chief Collection (Xbox);299,00;Shooter;Xbox One, Xbox X;03/12/2019;Xbox Game Studio;Full Release
+6;NHL 21 (Xbox);99;Sport;Xbox series x, Xbox One;16/10/20;Electronic Arts;Full Release
+7;F1 2021 (Xbox);179;Racing;Xbox series x, Xbox One;16/07/21;Electronic Arts;Full Realease
+8;STAR WARS Jedi: Fallen order (Xbox);199;Action;Xbox series x, Xbox One;11/11/19;Electronic Arts;Full Release
+9;God of Rock - Deluxe edition (Xbox);199;Music;Xbox series x, Xbox One;21/03/23;Modus Games;Full Release
+10;Just Dance 2021 (Xbox);299;Music;Xbox series x, Xbox One;12/11/20;Ubisoft;Full Release
+11;Hogwarts Legacy (Steam);446,59;Magic, Story Rich, Action;PlayStation, Xbox, Switch, Steam, Epic Games;10/02/2022;Warner Bros;Full Release
+12;Counter-Strike: Global Offensive (Steam);0;FPS, Shooter, Action;Steam, Xbox, PlayStation;21/08/2012;Valve;Full Release
+13;Sons Of The Forest (Steam);215,81;Survival, Crafting, Adventure;Steam;23/02/2023;Endnight Games Ltd;Early Access
+14;PAYDAY 2 (Steam);74,37;FPS, Heist, Co-op;Steam, PlayStation;13/08/2013;Starbreeze Publishing AB;Full Release
+15;ELDEN RING (Steam);446,47;Soul-like, Difficult, Third person;PlayStation, Xbox, Steam, Epic games;25/02/2022;Bandai Namco Entertainment;Full Release
+16;LEGO® Star Wars™: The Skywalker Saga (Steam);372,05;Open World, Sci-fi, Space;Steam, Epic Games, PlayStation, Xbox, Switch;05/05/2022;Warner Bros;Full Release
+17;DOOM Eternal (Steam);297,70;Demons, Blood, FPS;PlayStation, Xbox, Steam;20/03/2020;Bethesda;Full Release
+18;SUPERHOT (Steam);171,15;Action, FPS, SinglePlayer;Xbox, Steam, Switch, PlayStation, Epic games;25/02/2016;SUPERHOT Team;Full Release
+19;Portal (Steam);72,58;Puzzle,First-Person, Platformer;Steam, Xbox, PlayStation, Switch;10/10/2007;Valve;Full Release
+20;Leaf Blower Revolution - Idle Game (Steam);0;Indie, Relaxing, Free to play;Steam, Google Play;Humble North;04/12/2020;Full Release
+21;Five Nights at Freddy's: Security Breach (Steam);252,98;Survival Horror, Robots, First-Person;PlayStation, Steam, Xbox, Epic games;ScottGames;17/12/2021;Full Release
+22;Fifa 23 (PlayStation);639 dkk;Sport;PS5;30/09/2022;EA SWiss Sarl;fully released
+23;Hogwarts Legacy (PlayStation);559 dkk;Unique;PS5;10/2/2023;WARNER BROS. INTERACTIVE;fully released
+24;Fortnite (PlayStation);0 dkk;Action, Action, Experience, Unique;PS5;12/11/2020;EPIC GAMES;fully released
+25;Call of Duty: Modern Warfare 2 (PlayStation);629 dkk;Action;PS4, PS5;28/20/2022;Activision Blizzerd;fully released
+26;Grand Theft Auto Online (PlayStation);149 dkk;Action, Experience;PS5;15/03/2022;Rockstar Games;fully released
+27;Destiny 2 (PlayStation);0 dkk;Experience, Shooter, Action;PS4, PS5;08/12/2020;Bungie;fully released
+28;Genshin Impact-Lantern Rite (PlayStation);0 dkk;Action,Experience, Role Playing;PS4, PS5;28/04/2021;COGNOSPHERE PTE.LTD.;fully released
+29;Minecraft (PlayStation);134,95 dkk;Experience;PS4;10/12/2019;Mojang AB;fully released
+30;Atomic Heart (PlayStation);519 dkk;Action, RPG;PS4, PS5;21/02/2023;Focus Entertainment;fully released
+31;Horizon Call of the Mountain (PlayStation);519 dkk;Action, Experience;PS5 VR2;22/02/2023;Sony Interactive Entertainment Europe;fully released
+32;Gran Turismo 7 (PlayStation);694 dkk;Driving, Racing;PS4, PS5;4/3/2022;Polyphony Digital Inc;fully released
+33;The Last of Us Part 1 (PlayStation);594 dkk;Action;PS5;2/9/2022;Sony Interactive Entertainment Europe;fully released
+34;Valorant (Epic Games);Free;Action, Shooter;Windows 7, Windows 8, Windoes 10 (64-Bit);02/06/20;Riot Games;Full Release
+35;Naraka (Epic Games): Bladepoint;130;Action;Windows 10 64-bit;11/08/21;24 Entertainment;Full Release
+36;Red Dead Redemption 2 (Epic Games);449;Action, Narration, Open World;Windows 10;26/10/18;Rockstar Games;Full Release
+37;Destiny 2 (Epic Games);Free;Action, Shooter, Adventure;Windows 10 (64-Bit);28/08/17;Bungie Studios;Full Release
+38;Hogwarts Legacy (Epic Games);449;Action, RPG, Adventure;Windows 10;10/02/23;Avalanche Software;Full Release
+39;Dead by Daylight (Epic Games);96,10;Action, Survival;Windows 10 64-bit;14/06/16;Behaviour Interactive;Full Release
+40;Bloons TD 6 (Epic Games);67;Strategy;Windows 10;14/06/18;Ninja Kiwi;Full Release
+41;League of Legends (Epic Games);Free;Action, RPG, Strategy;Windows 7, Windows 8, Windows 10, MacOS 10.12, MacOS 10.16;27/10/09;Riot Games;Full Release
+42;ARK: Survival Evolved (Epic Games);96;RPG, Survival, Adventure;Windows 7 64-bit, Windows 8.1 64-bit, Windows 10 64-bit;02/06/15;Studio Wildcard;Full Release
+43;Cyberpunk 2077 (Epic Games);399;Action, RPG, Open World, Windows 10;10/12/20;CD Projekt RED;Full Release
+44;The Legend of Zelda: Tears of the Kingdom (Switch);488 dkk;Adventure,Action,Roleplaying;Nintendo Switch;12/05/2023;Nintendo;pre order
+45;Super Smash Bros. Ultimate (Switch);418 dkk;Action, Fighting, Multiplayer;Nintendo Switch;07/12/2018;Nintendo;fully released
+46;Super Mario Odyssey (Switch);418 dkk;Platformer, Action;Nintendo Switch;27/10/2017;Nintendo;fully released
+47;The Legend of Zelda: Breath of the Wild (Switch);418 dkk;Adventure, Action, Role-Playing;Nintendo Switch;03/03/2017;Nintendo;fully released
+48;Minecraft (Switch);209 dkk;Action, Adventure, Simulation;Nintendo Switch;20/06/2018;Mojang;fully released
+49;Fall Guys (Switch);0 dkk;Multiplayer, Party;Nintendo Switch;21/06/2022;Epic Games;fully released
+50;Metroid Dread (Switch);418 dkk;Action, Adventure;Nintendo Switch;8/10/2021;Nintendo;fully released
+51;Super Mario Maker 2 (Switch);418 dkk;Action, Platformer;Nintendo Switch;28/06/2019;Nintendo;fully released
+52;Cuphead (Switch);70 dkk;Action, Arcade, Platformer;Nintendo Switch;18/04/2019;StudioMDHR;fully released
+53;Hollow Knight (Switch);104 dkk;Action, Adventure, Platformer;Nintendo Switch;12/06/2018;Team Cherry;fully released
+54;Mario Kart 8 Deluxe (Switch);418 dkk;Racing, Mutiplayer;Nintendo Switch;28/04/2017;Nintendo;fully released
+55;Rocket League (Switch);0 dkk;Sports, Racing, Action;Nintendo Switch;14/11/2017;Psyonix;fully released
