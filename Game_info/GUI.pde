@@ -1,5 +1,6 @@
 //<>// //<>// //<>// //<>//
 int move;
+int moveDesc;
 int backgound = 100;
 float resultY;
 int resultX = 30;
@@ -9,7 +10,7 @@ int tempID = 0;
 int activity = -1;
 float descMax;
 String desc = "";
-boolean debug = false;
+float[] descCoords = new float[3];
 
 public void button2_click2(GButton source, GEvent event) {
   backgound = 0;
@@ -108,6 +109,7 @@ void searchButtonsDeactivate() {
     for (int i = 0; i < searchButtons.length; i++) { //runs through whole list of buttons
       if (mouseX < resultX || mouseX > resultX + width*0.3 || mouseY < searchButtons[i][1] || mouseY > searchButtons[i][2]) activity = -1; //is mouse outside just 1 button? then turn them all off
     }
+    moveDesc = 0;
   }
 }
 
@@ -125,7 +127,11 @@ void searchButtonsActivate() {
 }
 
 void infoPanel() {
-  desc = "";
+  descCoords[0] = width*0.375; //descXstart
+  descCoords[1] = height*0.4+(50+moveDesc*5); //descYstart
+  descCoords[2] = width*0.4; //descXmax
+  desc = ""; //prevents fuckups in desc
+  descMax = width*0.64-50;
   if (activity != -1 && frameCount >= 1) { //is a button active, and has script run least once?
     fill(200); //sets background
     rect(width*0.35, height*0.025, width*0.64, height*0.95); //places panel
@@ -136,13 +142,13 @@ void infoPanel() {
     //set to whatever, just not the size of YOUR MOM, cuz then no text will show since literally just 1 letter cannot fit
     textSize(25);
     //goes through whole game description, but stops earlier if there is no text left
-    for (int i = 0; i < gameDesc[int(searchButtons[activity][0])-1].length && gameDesc[int(searchButtons[activity][0])-1][i] != null; i++) {
+    for (int i = 1; i < gameDesc[int(searchButtons[activity][0])-1].length && gameDesc[int(searchButtons[activity][0])-1][i] != null; i++) {
       //put new line when file says so
       if (gameDesc[int(searchButtons[activity][0])-1][i].equals("")) desc = desc + "\n";
       //put a new line whenever there's a bullet point (yes this does add too much space sometimes, but DO IT YOURSELF THEN, GENIUS)
-      else if (gameDesc[int(searchButtons[activity][0])-1][i].length() >= 1 && gameDesc[int(searchButtons[activity][0])-1][i].substring(0,1).equals("•")) desc = desc + "\n";
+      else if (gameDesc[int(searchButtons[activity][0])-1][i].length() >= 1 && gameDesc[int(searchButtons[activity][0])-1][i].substring(0, 1).equals("•")) desc = desc + "\n";
       //just place the line if there's space
-      if (textWidth(desc + gameDesc[int(searchButtons[activity][0])-1][i]) < descMax) desc = desc + gameDesc[int(searchButtons[activity][0])-1][i] + "\n";
+      if (textWidth(desc + gameDesc[int(searchButtons[activity][0])-1][i]) < descCoords[2]) desc = desc + gameDesc[int(searchButtons[activity][0])-1][i] + "\n";
       //if there isnt enough space
       else {
         //break the line down to each word
@@ -150,24 +156,47 @@ void infoPanel() {
         //goes through the line
         for (int j = 0; j < temp.length; j++) {
           //if the word can fit, place it
-          if (textWidth(desc + temp[j] + " ") < descMax) desc = desc + temp[j] + " ";
+          if (textWidth(desc + temp[j] + " ") < descCoords[2]) desc = desc + temp[j] + " ";
           //if word cant fit, add new line, then place
           else desc = desc + "\n" + temp[j] + " ";
         }
       }
     }
 
-    text(desc, width*0.35+50, height*0.025+30+50); //places the description
+    text(desc, descCoords[0], descCoords[1]); //places the description
+    
+    descArea();
   }
 
+  strokeCap(ROUND);
+  strokeWeight(1);
   noFill();
 }
 
+void descArea() {
+  strokeCap(SQUARE);
+  noStroke();
+
+  //anti-desc clipping
+  fill(100);
+  rect(width*0.35, 0, width*0.64, height*0.025);
+  fill(200);
+  rect(width*0.35, height*0.025, width*0.64, height*0.375);
+  stroke(0);
+  strokeWeight(5);
+
+  //shows desc area
+  line(width*0.35, height*0.4, width*0.99, height*0.4); //h
+  line(width*0.8, height*0.025, width*0.8, height*0.975); //v
+  fill(100);
+  noStroke();
+  rect(width*0.35, height*0.975, width, height);
+  stroke(0);
+}
+
 void ScrollFix() {
-  if (move <= -308) {
-    move = -307;
-  }
-  if (move > -1) {
-    move = 0;
-  }
+  if (move <= -308) move = -307; //if search result is scrolled further than bottom, go to bottom
+  else if (move > -1) move = 0; //otherwise, if search result is scrolled further than top, go to top
+  if (moveDesc <= -401) moveDesc = -400; //if description is scrolled further than bottom, go to bottom (CORRECT LIMIT NOT KNOWN)
+  else if (moveDesc >= -1) moveDesc = 0; //otherwise, if description is scrolled further than top, go to top
 }
