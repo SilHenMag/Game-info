@@ -1,5 +1,8 @@
-//declare variables
-int move; //<>//
+//<>// //<>// //<>// //<>//
+
+//declares variables
+int move;
+int moveDesc;
 int backgound = 100;
 float resultY;
 int resultX = 30;
@@ -7,18 +10,21 @@ int searchResults;
 float[][] searchButtons;
 int tempID = 0;
 int activity = -1;
+float descMax;
+String desc = "";
+float[] descCoords = new float[3];
 
-//backgroundbutton 2
+//a background button
 public void button2_click2(GButton source, GEvent event) {
   backgound = 0;
 }
 
-//backgroundbutton1
+//a background button
 public void button1_click1(GButton source, GEvent event) {
   backgound = 100;
 }
 
-//the GUI
+//creates the GUI
 public void createGUI1() {
   G4P.messagesEnabled(false);
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
@@ -44,18 +50,20 @@ public void createGUI1() {
   G4P.setInputFont("Arial", G4P.PLAIN, 20);
   G4P.setSliderFont("Arial", G4P.PLAIN, 20);
 }
-
-
+//initiates searchbox and background buttons?
 GTextField textfield1;
 GButton button1;
 GButton button2;
 
-//search result panel
+//search area
 void search_area() {
+
+//initiates variables
   resultY = 0;
   searchResults = 0;
   tempID = 0;
 
+//yes
   fill(75);
   rect(-1, -1, 610, height + 50);
   textSize(30);
@@ -63,7 +71,20 @@ void search_area() {
   rect(25, 270, 560, height);
   fill(0);
 
-//places the search results
+//runs actual script
+  search_panel();
+  searchButtons_giveValue();
+  searchButtonsDeactivate();
+  searchButtonsActivate();
+  infoPanel();
+
+  fill(75);
+  strokeWeight(0);
+  rect(0, 0, 600, 269);
+}
+
+//the search results panel - shows results
+void search_panel() {
   for (int i = 0; i < data.length; i++) { //goes through whole database
     if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) { //does a game in database, match search?
       if (mouseX >= resultX && mouseX <= resultX + width*0.3 && mouseY >= (300 + move * 6 + resultY * 45) - 20 && mouseY <= (300 + move * 6 + resultY * 45) + 10) { //is mouse within a game's button area?
@@ -76,79 +97,129 @@ void search_area() {
       searchResults++; //counts the number of search results
     }
   }
+}
 
-//makes the array that holds the buttons
+//gives search buttons their value
+void searchButtons_giveValue() {
+  
+//initiates variables
   searchButtons = new float[searchResults][4]; //ID, y start, y end, activity
-  tempID = 0;
-  resultY = 0;
+  tempID = 0; //game button ID's?
+  resultY = 0; //button Y-coordinate
   for (int i = 0; i < data.length; i++) {
     if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) { //does a game in database, match search?
-      searchButtons[tempID][0] = int(gameInfo[i][0]); //include game ID
-      searchButtons[tempID][1] = (300 + move * 6 + resultY * 45) - 20; //give y start coordinate
-      searchButtons[tempID][2] = (300 + move * 6 + resultY * 45) + 10; //give y end coordinate
-
+      searchButtons[tempID][0] = int(gameInfo[i][0]); //give ID
+      searchButtons[tempID][1] = (300 + move * 6 + resultY * 45) - 20; //give start-Y position
+      searchButtons[tempID][2] = (300 + move * 6 + resultY * 45) + 10; //give end-Y position
 
       tempID++;
       resultY++;
     }
   }
-
-
-//deactivates buttons
-  if (frameCount >= 1 && mousePressed && activity != -1) { //run if a button is active (known through activity ID), mouse is down, and the whole script has been run least once already
-    for (int i = 0; i < searchButtons.length; i++) { //looks through all buttons in search result panel
-      if (mouseX < resultX || mouseX > resultX + width*0.3 || mouseY < searchButtons[i][1] || mouseY > searchButtons[i][2]) activity = -1; //set all buttons to inactive if mouse is outside just 1 of them
-    }
-  }
-
-//activates buttons
-  if (frameCount >= 1 && mousePressed) { //run if mouse is down and the whole script has been run least once already
-    for (int i = 0; i < searchButtons.length; i++) { //looks through all buttons in search result panel
-      if (mouseX >= resultX && mouseX <= resultX + width*0.3 && mouseY >= searchButtons[i][1] && mouseY <= searchButtons[i][2]) { //is mouse inside just one of the buttons?
-        searchButtons[i][3] = 1.0; //set the button in list of buttons, to active
-        activity = i; //set activity ID to the button that's active
-        
-        //not needed. is just to show the game's button info in console
-        println("");
-        printArray(searchButtons[i]);
-      }
-    }
-  }
-
-//Activates the information panel
-  if (activity != -1 && frameCount >= 1) { //run if a button is active (known through button ID) and if the whole script has run least once already
-    for (int j = 0; j < data.length; j++) { //looks through the whole list of data, since that's where all the games' information is
-      if (searchButtons[activity][0] == float(gameInfo[j][0])) { //does the game looked at, have the right ID?
-        //infomation panel. Placeholder until the real pages are finished
-        fill(200);
-        rect(width*0.35, height*0.025, width*0.64, height*0.95);
-
-        fill(0);
-        text(gameInfo[j][0] + " " +
-          gameInfo[j][1] + " " +
-          gameInfo[j][2] + " " +
-          gameInfo[j][3] + " " +
-          gameInfo[j][4] + " " +
-          gameInfo[j][5] + " " +
-          gameInfo[j][6], width*0.4, height*0.5);
-         //information panel end
-      }
-
-      noFill();
-    }
-  }
-
-  fill(75);
-  strokeWeight(0);
-  rect(0, 0, 600, 269);
 }
 
-//function that ensures you don't scroll out of the search results panel
+//deactivates buttons. Runs first because then buttons can activate afterwards
+void searchButtonsDeactivate() {
+  if (frameCount >= 1 && mousePressed && activity != -1) { //is a button on, mouse down, and has script run least once?
+    for (int i = 0; i < searchButtons.length; i++) { //runs through whole list of buttons
+      if (mouseX < resultX || mouseX > resultX + width*0.3 || mouseY < searchButtons[i][1] || mouseY > searchButtons[i][2]) activity = -1; //is mouse outside just 1 button? then turn them all off
+    }
+    moveDesc = 0;
+  }
+}
+
+//activates buttons
+void searchButtonsActivate() {
+  if (frameCount >= 1 && mousePressed) { //is mouse held, and has script run least once?
+    for (int i = 0; i < searchButtons.length; i++) { //runs through whole list of buttons
+      if (mouseX >= resultX && mouseX <= resultX + width*0.3 && mouseY >= searchButtons[i][1] && mouseY <= searchButtons[i][2]) { //is mouse inside a button?
+        searchButtons[i][3] = 1.0; //set the button's activity to "active" - unsure if this is even needed
+        activity = i; //set activity ID to active button
+        println(""); //prints some space in console - just for devs
+        printArray(searchButtons[i]); //prints the active button's info - just for devs
+      }
+    }
+  }
+}
+
+//actual infopanel. Shows the game information
+void infoPanel() {
+
+//initiates variables
+  descCoords[0] = width*0.375; //descXstart
+  descCoords[1] = height*0.4+(50+moveDesc*5); //descYstart
+  descCoords[2] = width*0.4; //descXmax
+  desc = ""; //prevents fuckups in desc
+  descMax = width*0.64-50; //sets max description width
+
+//the script
+  if (activity != -1 && frameCount >= 1) { //is a button active, and has script run least once?
+    fill(200); //sets background
+    rect(width*0.35, height*0.025, width*0.64, height*0.95); //places panel
+
+    fill(0); //sets text color
+
+    //adds the text in a way that will fit inside the window
+    //set to whatever, just not the size of YOUR MOM, cuz then no text will show since literally just 1 letter cannot fit
+    textSize(25);
+    //goes through whole game description, but stops earlier if there is no text left
+    for (int i = 1; i < gameDesc[int(searchButtons[activity][0])-1].length && gameDesc[int(searchButtons[activity][0])-1][i] != null; i++) {
+      //put new line when file says so
+      if (gameDesc[int(searchButtons[activity][0])-1][i].equals("")) desc = desc + "\n";
+      //put a new line whenever there's a bullet point (yes this does add too much space sometimes, but DO IT YOURSELF THEN, GENIUS)
+      else if (gameDesc[int(searchButtons[activity][0])-1][i].length() >= 1 && gameDesc[int(searchButtons[activity][0])-1][i].substring(0, 1).equals("•")) desc = desc + "\n";
+      //just place the line if there's space
+      if (textWidth(desc + gameDesc[int(searchButtons[activity][0])-1][i]) < descCoords[2]) desc = desc + gameDesc[int(searchButtons[activity][0])-1][i] + "\n";
+      //if there isnt enough space
+      else {
+        //break the line down to each word
+        temp = split(gameDesc[int(searchButtons[activity][0])-1][i], " ");
+        //goes through the line
+        for (int j = 0; j < temp.length; j++) {
+          //if the word can fit, place it
+          if (textWidth(desc + temp[j] + " ") < descCoords[2]) desc = desc + temp[j] + " ";
+          //if word cant fit, add new line, then place
+          else desc = desc + "\n" + temp[j] + " ";
+        }
+      }
+    }
+
+    text(desc, descCoords[0], descCoords[1]); //places the description
+    
+    descArea();
+  }
+
+  strokeCap(ROUND);
+  strokeWeight(1);
+  noFill();
+}
+
+//the description area
+void descArea() {
+  strokeCap(SQUARE);
+  noStroke();
+
+  //anti-desc clipping
+  fill(100);
+  rect(width*0.35, 0, width*0.64, height*0.025);
+  fill(200);
+  rect(width*0.35, height*0.025, width*0.64, height*0.375);
+  stroke(0);
+  strokeWeight(5);
+
+  //shows desc area
+  line(width*0.35, height*0.4, width*0.99, height*0.4); //h
+  line(width*0.8, height*0.025, width*0.8, height*0.975); //v
+  fill(100);
+  noStroke();
+  rect(width*0.35, height*0.975, width, height);
+  stroke(0);
+}
+
+//prevents you from scrolling out of bounds
 void ScrollFix() {
-  if (move <= -308) { //has there been scrolled further than the bottom?
-    move = -307; //set scroll to bottom
-  }
-  if (move > -1) { //has there been scrolled further than the top?
-    move = 0; //set scroll to top
-  }
+  if (move <= -308) move = -307; //if search result is scrolled further than bottom, go to bottom
+  else if (move > -1) move = 0; //otherwise, if search result is scrolled further than top, go to top
+  if (moveDesc <= -401) moveDesc = -400; //if description is scrolled further than bottom, go to bottom (CORRECT LIMIT NOT KNOWN)
+  else if (moveDesc >= -1) moveDesc = 0; //otherwise, if description is scrolled further than top, go to top
 }
