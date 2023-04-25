@@ -1,4 +1,6 @@
 //<>// //<>// //<>// //<>//
+
+//declares variables
 int move;
 int moveDesc;
 int backgound = 100;
@@ -12,14 +14,17 @@ float descMax;
 String desc = "";
 float[] descCoords = new float[3];
 
+//a background button
 public void button2_click2(GButton source, GEvent event) {
   backgound = 0;
 }
 
+//a background button
 public void button1_click1(GButton source, GEvent event) {
   backgound = 100;
 }
 
+//creates the GUI
 public void createGUI1() {
   G4P.messagesEnabled(false);
   G4P.setGlobalColorScheme(GCScheme.BLUE_SCHEME);
@@ -45,16 +50,20 @@ public void createGUI1() {
   G4P.setInputFont("Arial", G4P.PLAIN, 20);
   G4P.setSliderFont("Arial", G4P.PLAIN, 20);
 }
-
+//initiates searchbox and background buttons?
 GTextField textfield1;
 GButton button1;
 GButton button2;
 
+//search area
 void search_area() {
+
+//initiates variables
   resultY = 0;
   searchResults = 0;
   tempID = 0;
 
+//yes
   fill(75);
   rect(-1, -1, 610, height + 50);
   textSize(30);
@@ -62,6 +71,7 @@ void search_area() {
   rect(25, 270, 560, height);
   fill(0);
 
+//runs actual script
   search_panel();
   searchButtons_giveValue();
   searchButtonsDeactivate();
@@ -73,6 +83,7 @@ void search_area() {
   rect(0, 0, 600, 269);
 }
 
+//the search results panel - shows results
 void search_panel() {
   for (int i = 0; i < data.length; i++) { //goes through whole database
     if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) { //does a game in database, match search?
@@ -88,10 +99,13 @@ void search_panel() {
   }
 }
 
+//gives search buttons their value
 void searchButtons_giveValue() {
+  
+//initiates variables
   searchButtons = new float[searchResults][4]; //ID, y start, y end, activity
-  tempID = 0;
-  resultY = 0;
+  tempID = 0; //game button ID's?
+  resultY = 0; //button Y-coordinate
   for (int i = 0; i < data.length; i++) {
     if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) { //does a game in database, match search?
       searchButtons[tempID][0] = int(gameInfo[i][0]); //give ID
@@ -104,6 +118,7 @@ void searchButtons_giveValue() {
   }
 }
 
+//deactivates buttons. Runs first because then buttons can activate afterwards
 void searchButtonsDeactivate() {
   if (frameCount >= 1 && mousePressed && activity != -1) { //is a button on, mouse down, and has script run least once?
     for (int i = 0; i < searchButtons.length; i++) { //runs through whole list of buttons
@@ -113,6 +128,7 @@ void searchButtonsDeactivate() {
   }
 }
 
+//activates buttons
 void searchButtonsActivate() {
   if (frameCount >= 1 && mousePressed) { //is mouse held, and has script run least once?
     for (int i = 0; i < searchButtons.length; i++) { //runs through whole list of buttons
@@ -126,12 +142,17 @@ void searchButtonsActivate() {
   }
 }
 
+//actual infopanel. Shows the game information
 void infoPanel() {
+
+//initiates variables
   descCoords[0] = width*0.375; //descXstart
   descCoords[1] = height*0.4+(50+moveDesc*5); //descYstart
   descCoords[2] = width*0.4; //descXmax
   desc = ""; //prevents fuckups in desc
-  descMax = width*0.64-50;
+  descMax = width*0.64-50; //sets max description width
+
+//the script
   if (activity != -1 && frameCount >= 1) { //is a button active, and has script run least once?
     fill(200); //sets background
     rect(width*0.35, height*0.025, width*0.64, height*0.95); //places panel
@@ -173,6 +194,7 @@ void infoPanel() {
   noFill();
 }
 
+//the description area
 void descArea() {
   strokeCap(SQUARE);
   noStroke();
@@ -194,6 +216,7 @@ void descArea() {
   stroke(0);
 }
 
+//prevents you from scrolling out of bounds
 void ScrollFix() {
   if (move <= -308) move = -307; //if search result is scrolled further than bottom, go to bottom
   else if (move > -1) move = 0; //otherwise, if search result is scrolled further than top, go to top
