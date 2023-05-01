@@ -85,16 +85,34 @@ void search_area() {
 
 //the search results panel - shows results
 void search_panel() {
-  for (int i = 0; i < data.length; i++) { //goes through whole database
-    if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) { //does a game in database, match search?
-      if (mouseX >= resultX && mouseX <= resultX + width*0.3 && mouseY >= (300 + move * 6 + resultY * 45) - 20 && mouseY <= (300 + move * 6 + resultY * 45) + 10) { //is mouse within a game's button area?
-        fill(200); //set button color
-        rect(resultX, (300 + move * 6 + resultY * 45) - 30, resultX + width*0.285, 45); //the button
-        fill(0); //set text color
+
+  //goes through whole database
+  for (int i = 0; i < data.length; i++) { 
+  
+    //does a game in database, match search?
+    if (gameInfo[i][1].substring(0, Math.min(textfield1.getText().length(), gameInfo[i][1].length())).toLowerCase().equals(textfield1.getText().toLowerCase())) {
+    
+      //is mouse within a game's button area?
+      if (mouseX >= resultX && mouseX <= resultX + width*0.3 && mouseY >= (300 + move * 6 + resultY * 45) - 20 && mouseY <= (300 + move * 6 + resultY * 45) + 10) {
+      
+        //set button color
+        fill(200); 
+        
+        //the button
+        rect(resultX, (300 + move * 6 + resultY * 45) - 30, resultX + width*0.285, 45);
+        
+        //set text color
+        fill(0); 
       }
-      text(gameInfo[i][1], resultX, 300 + move * 6 + resultY * 45); //search results
-      resultY++; //makes sure the search results have correct y position
-      searchResults++; //counts the number of search results
+      
+      //search results
+      text(gameInfo[i][1], resultX, 300 + move * 6 + resultY * 45);
+      
+      //makes sure the search results have correct y position
+      resultY++;
+      
+      //counts the number of search results
+      searchResults++;
     }
   }
 }
